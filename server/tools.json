@@ -1,0 +1,70 @@
+[
+  {
+    "name": "searchFlights",
+    "description": "Searches for available flights based on user criteria.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "departureCity": { "type": "string", "description": "The city or airport code for departure." },
+        "arrivalCity": { "type": "string", "description": "The city or airport code for arrival." },
+        "departureDate": { "type": "string", "description": "The departure date in YYYY-MM-DD format." },
+        "returnDate": { "type": "string", "description": "The return date in YYYY-MM-DD format (optional for one-way trips)." },
+        "passengers": { "type": "integer", "description": "The number of passengers." }
+      },
+      "required": ["departureCity", "arrivalCity", "departureDate", "passengers"]
+    }
+  },
+  {
+    "name": "searchHotels",
+    "description": "Searches for hotel accommodations.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string", "description": "The city where to search for hotels." },
+        "checkInDate": { "type": "string", "description": "The check-in date in YYYY-MM-DD format." },
+        "checkOutDate": { "type": "string", "description": "The check-out date in YYYY-MM-DD format." },
+        "guests": { "type": "integer", "description": "The number of guests." }
+      },
+      "required": ["city", "checkInDate", "checkOutDate", "guests"]
+    }
+  },
+  {
+    "name": "getAttractions",
+    "description": "Finds attractions and points of interest in a specific city.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string", "description": "The city to search for attractions." },
+        "category": { "type": "string", "description": "The category of attraction (e.g., 'historical', 'beach', 'museum')." }
+      },
+      "required": ["city"]
+    }
+  },
+  {
+    "name": "searchCarRentals",
+    "description": "Searches for car rental options.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "city": { "type": "string", "description": "The city for car pickup." },
+        "pickupDate": { "type": "string", "description": "The pickup date in YYYY-MM-DD format." },
+        "dropoffDate": { "type": "string", "description": "The dropoff date in YYYY-MM-DD format." }
+      },
+      "required": ["city", "pickupDate", "dropoffDate"]
+    }
+  },
+  {
+    "name": "planDayItinerary",
+    "description": "Creates a detailed, time-slotted itinerary for a single day of the trip.",
+    "parameters": {
+      "type": "object",
+      "properties": {
+        "date": { "type": "string", "description": "The date for the itinerary in YYYY-MM-DD format." },
+        "activities": { "type": "array", "items": { "type": "string" }, "description": "A list of activities or attractions to include." },
+        "startTime": { "type": "string", "description": "The start time for the day's plan (e.g., '09:00')." },
+        "endTime": { "type": "string", "description": "The end time for the day's plan (e.g., '22:00')." }
+      },
+      "required": ["date", "activities"]
+    }
+  }
+]
